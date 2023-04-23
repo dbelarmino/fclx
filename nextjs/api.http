@@ -5,14 +5,14 @@ POST http://localhost:3000/api/chats
 Content-Type: application/json
 
 {
-  "message": "Hello"
+  "message": "Olá"
 }
 
 ###
 GET http://localhost:3000/api/chats
 
 
-@chatId = cb8e42f7-7684-423c-8055-2bfe265bb78d
+@chatId = 37ee68cb-2c93-4ac8-843a-ce0fbbf30fcc
 
 ###
 GET http://localhost:3000/api/chats/{{chatId}}/messages
@@ -22,7 +22,7 @@ POST  http://localhost:3000/api/chats/{{chatId}}/messages
 Content-Type: application/json
 
 {
-  "message": "ola"
+  "message": "Olá"
 }
 
 ###
