@@ -3,7 +3,6 @@ package chatcompletion
 import (
 	"context"
 	"errors"
-	"fmt"
 
 	"github.com/dbelarmino/fclx/chat-service/internal/domain/entity"
 	"github.com/dbelarmino/fclx/chat-service/internal/domain/gateway"
@@ -64,8 +63,6 @@ func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompleti
 			return nil, errors.New("error fetching existing chat: " + err.Error())
 		}
 	}
-
-	fmt.Println("Hello")
 
 	userMessage, err := entity.NewMessage("user", input.UserMessage, chat.Config.Model)
 	if err != nil {
