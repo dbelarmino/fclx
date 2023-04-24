@@ -1,8 +1,11 @@
 GET http://localhost:3000/api/hello
 
+@token = eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..WwMDLBU92ym9tUOJ.HoSzNJKKOqd08l5s5_4iUHOICrKxUSt2AM7ylk0r_VYvKKhzL6Fp5kUZxauKqTR4QMWhDope0PWSqE12ETlw3CFve1RLiywPduxha_L-kBPD-kinXXDUxh93XixtMB11SVeHtUsyYBgKiV5tZLsRo4DZUumpN9mlfcoSzILzoZbdj0XRMHO67U5xEg0.X3ntvN-FcGbjQ3y_LvRlAg
+
 ###
 POST http://localhost:3000/api/chats
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "message": "Olá"
@@ -10,16 +13,18 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/chats
-
+Authorization: Bearer {{token}}
 
 @chatId = 37ee68cb-2c93-4ac8-843a-ce0fbbf30fcc
 
 ###
 GET http://localhost:3000/api/chats/{{chatId}}/messages
+Authorization: Bearer {{token}}
 
 ###
 POST  http://localhost:3000/api/chats/{{chatId}}/messages
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "message": "Olá"
@@ -29,3 +34,10 @@ Content-Type: application/json
 @messageId = 43290d26-51dc-445d-8931-63f597bc97da
 
 GET http://localhost:3000/api/messages/{{messageId}}/events
+Authorization: Bearer {{token}}
+
+###
+POST http://localhost:3000/api/generate-token
+Content-Type: application/json
+
+{}
